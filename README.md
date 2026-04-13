@@ -9,7 +9,7 @@ A next-generation, deeply interactive AI chatting interface powered by the **Goo
 - **🧠 Google Gemini Integration**: Lightning-fast, intelligent conversations with native Markdown rendering and syntax highlighting.
 - **🔐 Firebase Authentication**: Seamless Google Sign-In and Anonymous Guest access.
 - **💾 Persistent History**: Conversations are automatically synced to Firebase Firestore per user session.
-- **📌 Chat Management**: Pin your favorite conversations to the top or securely delete individual chats independently.
+- **📌 Chat Management**: Pin your favourite conversations to the top or securely delete individual chats independently.
 - **🌓 True Dynamic Theming**: Swap between an immersive Dark Mode (with animated Aurora backgrounds) and a crisp Light Mode effortlessly using our Smart Invert engine.
 - **🎙️ Voice Input**: Fully integrated Web Speech API for hands-free prompting with active microphone pulse animations.
 - **🎯 Premium UI/UX**: Built with Framer Motion and Tailwind CSS, featuring staggered sidebars, responsive right/left messaging layouts, starter prompt cards, and hover micro-interactions.
@@ -71,7 +71,7 @@ The app will instantly boot up at `http://localhost:5173`.
 
 ## ☁️ Deployment
 
-This Vite-based React application is highly optimized for zero-config deployments. The recommended free host is **Vercel**.
+This Vite-based React application is highly optimised for zero-config deployments. The recommended free host is **Vercel**.
 
 1. Push your code to a GitHub repository.
 2. Import the repository into your Vercel dashboard as a new project.
@@ -79,4 +79,4 @@ This Vite-based React application is highly optimized for zero-config deployment
 4. Simply highlight and copy all the text from your local `.env` file, click on the first **Key** input box on Vercel, and paste (`Ctrl+V`). Vercel will automatically separate all your keys for you!
 5. Click **Deploy** — your site will magically be live on the internet in less than 60 seconds.
 
-🚀 **Live Deployment URL:** [Live Link](https://ai-chat-app-ochre.vercel.app/)
+🚀 **Live Deployment URL:** [Live Link]([https://ai-chat-app-ochre.vercel.app/](https://ai-chat-app-two-henna.vercel.app/))
