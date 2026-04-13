@@ -10,7 +10,7 @@ A next-generation, deeply interactive AI chatting interface powered by the **Goo
 - **🔐 Firebase Authentication**: Seamless Google Sign-In and Anonymous Guest access.
 - **💾 Persistent History**: Conversations are automatically synced to Firebase Firestore per user session.
 - **📌 Chat Management**: Pin your favorite conversations to the top or securely delete individual chats independently.
-- **🌓 True Dynamic Theming**: Swap between an immersive Dark Mode (with animated Aurora backgrounds) and a crisp Light Mode effortlessly using our Smart Invert engine. 
+- **🌓 True Dynamic Theming**: Swap between an immersive Dark Mode (with animated Aurora backgrounds) and a crisp Light Mode effortlessly using our Smart Invert engine.
 - **🎙️ Voice Input**: Fully integrated Web Speech API for hands-free prompting with active microphone pulse animations.
 - **🎯 Premium UI/UX**: Built with Framer Motion and Tailwind CSS, featuring staggered sidebars, responsive right/left messaging layouts, starter prompt cards, and hover micro-interactions.
 - **⚙️ Settings & Upgrades**: A fully designed Settings Modal featuring a mock Pro subscription layout with Indian Rupee (INR) tier packages.
@@ -31,17 +31,20 @@ A next-generation, deeply interactive AI chatting interface powered by the **Goo
 ## 🚀 Quick Start
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/YourUsername/premium-ai-chat.git
 cd premium-ai-chat
 ```
 
 ### 2. Install dependencies
+
 ```bash
 npm install
 ```
 
 ### 3. Setup Environment Variables
+
 Create a `.env` file in the root directory and securely add your API keys:
 
 ```env
@@ -57,22 +60,23 @@ VITE_FIREBASE_APP_ID="..."
 ```
 
 ### 4. Run the Application
+
 ```bash
 npm run dev
 ```
 
-The app will instantly boot up at `http://localhost:5173`. 
+The app will instantly boot up at `http://localhost:5173`.
 
 ---
 
 ## ☁️ Deployment
 
-This Vite-based React application is highly optimized for zero-config deployments. The recommended free host is **Vercel**. 
+This Vite-based React application is highly optimized for zero-config deployments. The recommended free host is **Vercel**.
 
 1. Push your code to a GitHub repository.
 2. Import the repository into your Vercel dashboard as a new project.
 3. **CRITICAL:** When you reach the "Configure Project" screen, open the **Environment Variables** tab.
 4. Simply highlight and copy all the text from your local `.env` file, click on the first **Key** input box on Vercel, and paste (`Ctrl+V`). Vercel will automatically separate all your keys for you!
-5. Click **Deploy** — your site will magically be live on the internet in less than 60 seconds. 
+5. Click **Deploy** — your site will magically be live on the internet in less than 60 seconds.
 
-🚀 **Live Deployment URL:** [Your Live Link Here](https://your-app-url.vercel.app)
+🚀 **Live Deployment URL:** [Live Link](https://ai-chat-app-ochre.vercel.app/)
