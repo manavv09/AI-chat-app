@@ -69,14 +69,4 @@ The app will instantly boot up at `http://localhost:5173`.
 
 ---
 
-## ☁️ Deployment
-
-This Vite-based React application is highly optimised for zero-config deployments. The recommended free host is **Vercel**.
-
-1. Push your code to a GitHub repository.
-2. Import the repository into your Vercel dashboard as a new project.
-3. **CRITICAL:** When you reach the "Configure Project" screen, open the **Environment Variables** tab.
-4. Simply highlight and copy all the text from your local `.env` file, click on the first **Key** input box on Vercel, and paste (`Ctrl+V`). Vercel will automatically separate all your keys for you!
-5. Click **Deploy** — your site will magically be live on the internet in less than 60 seconds.
-
 🚀 **Live Deployment URL:** [Live Link](https://ai-chat-app-two-henna.vercel.app/)
