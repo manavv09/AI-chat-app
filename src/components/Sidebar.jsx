@@ -28,7 +28,7 @@ const Sidebar = ({ history, activeChatId, onNewChat, onSelectChat, isOpen, toggl
         className={`
           fixed md:static inset-y-0 left-0 z-30 w-[280px] h-full shrink-0
           glass-panel border-l-0 border-y-0 !rounded-none flex flex-col
-          md:translate-x-0
+          md:translate-x-0 will-change-gpu
         `}
         initial={false}
         animate={{ x: isOpen || window.innerWidth >= 768 ? 0 : '-100%' }}

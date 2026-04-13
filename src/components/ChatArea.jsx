@@ -82,7 +82,7 @@ const ChatArea = ({ messages, isTyping }) => {
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className={`flex gap-3 md:gap-4 w-full mb-8 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              className={`flex gap-3 md:gap-4 w-full mb-8 will-change-gpu ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               {msg.role === 'assistant' && (
                 <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-2xl flex items-center justify-center shadow-lg bg-white/5 ring-1 ring-white/10 backdrop-blur-md self-end mb-2">
