@@ -176,10 +176,9 @@ function App() {
      return <div className="min-h-[100dvh] flex items-center justify-center bg-[#050505] text-white">Loading...</div>;
   }
 
-  // Removed login options so you can directly work on the app
-  // if (!user) {
-  //   return <Login />;
-  // }
+  if (!user) {
+    return <Login />;
+  }
 
   return (
     <div className="flex h-[100dvh] relative z-0">
