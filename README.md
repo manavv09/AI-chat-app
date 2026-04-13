@@ -79,4 +79,4 @@ This Vite-based React application is highly optimised for zero-config deployment
 4. Simply highlight and copy all the text from your local `.env` file, click on the first **Key** input box on Vercel, and paste (`Ctrl+V`). Vercel will automatically separate all your keys for you!
 5. Click **Deploy** — your site will magically be live on the internet in less than 60 seconds.
 
-🚀 **Live Deployment URL:** [Live Link]([https://ai-chat-app-ochre.vercel.app/](https://ai-chat-app-two-henna.vercel.app/)
+🚀 **Live Deployment URL:** [Live Link](https://ai-chat-app-two-henna.vercel.app/)
