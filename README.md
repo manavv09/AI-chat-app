@@ -33,8 +33,8 @@ A next-generation, deeply interactive AI chatting interface powered by the **Goo
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YourUsername/premium-ai-chat.git
-cd premium-ai-chat
+git clone https://github.com/manavv09/ai-chat-app.git
+cd ai-chat-app
 ```
 
 ### 2. Install dependencies
