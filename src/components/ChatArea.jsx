@@ -25,9 +25,7 @@ const ChatArea = ({ messages, isTyping }) => {
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
               className="absolute inset-0 rounded-3xl border border-white/10 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]"
             />
-            <svg viewBox="0 0 24 24" className="w-12 h-12 text-cyan-300 drop-shadow-[0_0_15px_rgba(103,232,249,0.5)]" fill="none" stroke="currentColor" strokeWidth="1.5">
-               <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9s2.015-9 4.5-9m0 0a9.015 9.015 0 010 18zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5zm0 6a.75.75 0 100-1.5.75.75 0 000 1.5zm0-3a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-            </svg>
+            <Sparkles size={40} className="text-cyan-300 drop-shadow-[0_0_15px_rgba(103,232,249,0.5)]" />
           </motion.div>
           <motion.h1 
             initial={{ y: 20, opacity: 0 }}
