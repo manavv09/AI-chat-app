@@ -70,6 +70,9 @@ The app will instantly boot up at `http://localhost:5173`.
 This Vite-based React application is highly optimized for zero-config deployments. The recommended free host is **Vercel**. 
 
 1. Push your code to a GitHub repository.
-2. Import the repository into your Vercel dashboard.
-3. Add all the key-value pairs from your `.env` file into the Vercel **Environment Variables** settings.
-4. Click Deploy — your site will be live in less than 60 seconds!
+2. Import the repository into your Vercel dashboard as a new project.
+3. **CRITICAL:** When you reach the "Configure Project" screen, open the **Environment Variables** tab.
+4. Simply highlight and copy all the text from your local `.env` file, click on the first **Key** input box on Vercel, and paste (`Ctrl+V`). Vercel will automatically separate all your keys for you!
+5. Click **Deploy** — your site will magically be live on the internet in less than 60 seconds. 
+
+🚀 **Live Deployment URL:** [Your Live Link Here](https://your-app-url.vercel.app)
