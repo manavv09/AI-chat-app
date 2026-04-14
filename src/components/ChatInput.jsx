@@ -90,12 +90,12 @@ const ChatInput = ({ onSendMessage, disabled }) => {
   };
 
   return (
-    <div className="absolute bottom-0 left-0 right-0 pt-16 pb-8 px-4 md:px-8 bg-gradient-to-t from-[#050505] via-[#050505]/95 to-transparent z-10 pointer-events-none">
+    <div className="absolute bottom-0 left-0 right-0 pt-16 pb-8 px-4 md:px-8 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/95 to-transparent z-10 pointer-events-none">
       <div className="max-w-4xl mx-auto relative pointer-events-auto group">
         <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-3xl blur opacity-0 group-focus-within:opacity-100 transition duration-500"></div>
         <form 
           onSubmit={handleSubmit}
-          className="relative flex items-end glass-panel rounded-3xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-500"
+          className="relative flex items-end glass-panel rounded-3xl border border-[var(--border-color)] shadow-[0_8px_32px_0_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-500"
         >
           <textarea
             ref={textareaRef}
@@ -104,7 +104,7 @@ const ChatInput = ({ onSendMessage, disabled }) => {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Ask anything..."
-            className="w-full max-h-[250px] bg-transparent text-white placeholder-white/30 py-5 pl-[5.5rem] pr-16 focus:outline-none resize-none custom-scrollbar text-[17px] font-light leading-relaxed"
+            className="w-full max-h-[250px] bg-transparent text-[var(--text-primary)] placeholder-[var(--text-muted)] py-5 pl-[5.5rem] pr-16 focus:outline-none resize-none custom-scrollbar text-[17px] font-light leading-relaxed"
             style={{ minHeight: '68px' }}
           />
 
@@ -113,7 +113,7 @@ const ChatInput = ({ onSendMessage, disabled }) => {
              <button
                type="button"
                onClick={() => alert("Attachment prototype: Would open file picker")}
-               className="p-2.5 rounded-full text-white/40 hover:text-white hover:bg-white/10 transition-all duration-300 active:scale-90"
+               className="p-2.5 rounded-full text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] transition-all duration-300 active:scale-90"
              >
                 <Plus size={22} className="stroke-[2.5]" />
              </button>
@@ -121,7 +121,7 @@ const ChatInput = ({ onSendMessage, disabled }) => {
                type="button"
                onClick={toggleListening}
                className={`p-2.5 rounded-full flex items-center justify-center transition-all duration-300 active:scale-90
-                 ${isListening ? 'bg-red-500/20 text-red-400 animate-pulse' : 'text-white/40 hover:text-white hover:bg-white/10'}`}
+                 ${isListening ? 'bg-red-500/20 text-red-400 animate-pulse' : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)]'}`}
              >
                 {isListening ? <Mic size={22} className="stroke-[2.5]" /> : <MicOff size={22} />}
              </button>
@@ -137,13 +137,13 @@ const ChatInput = ({ onSendMessage, disabled }) => {
               className={`p-3 rounded-xl flex items-center justify-center transition-all duration-300
                 ${input.trim() && !disabled 
                   ? 'bg-gradient-to-r from-indigo-500 to-cyan-500 text-white shadow-[0_4px_15px_rgba(6,182,212,0.4)]' 
-                  : 'bg-white/5 text-white/20 cursor-not-allowed border border-white/5'}`}
+                  : 'bg-[var(--bg-surface)] text-[var(--text-muted)] cursor-not-allowed border border-[var(--border-color)]'}`}
             >
               <ArrowUp size={22} className={input.trim() && !disabled ? "stroke-[2.5]" : "stroke-[2]"} />
             </motion.button>
           </div>
         </form>
-        <div className="text-center text-[11px] text-white/30 mt-4 tracking-wide">
+        <div className="text-center text-[11px] text-[var(--text-muted)] mt-4 tracking-wide">
           Gemini may display inaccurate info, so double-check its responses.
         </div>
       </div>

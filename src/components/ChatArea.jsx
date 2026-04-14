@@ -31,7 +31,7 @@ const ChatArea = ({ messages, isTyping }) => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/50 mb-4 tracking-tight"
+            className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-primary)] via-[var(--text-primary)]/90 to-[var(--text-primary)]/50 mb-4 tracking-tight"
           >
             Limitless Intelligence.
           </motion.h1>
@@ -39,7 +39,7 @@ const ChatArea = ({ messages, isTyping }) => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-white/40 max-w-lg text-[15px] md:text-lg font-light leading-relaxed tracking-wide mb-12"
+            className="text-[var(--text-secondary)] max-w-lg text-[15px] md:text-lg font-light leading-relaxed tracking-wide mb-12"
           >
             Type a message below or explore some of these ideas to get started.
           </motion.p>
@@ -56,13 +56,13 @@ const ChatArea = ({ messages, isTyping }) => {
                { icon: <FileText size={18} className="text-emerald-400" />, title: "Write", desc: "Draft a professional email" },
                { icon: <Lightbulb size={18} className="text-yellow-400" />, title: "Brainstorm", desc: "Plan a weekend itinerary" }
             ].map((item, i) => (
-               <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] transition-all cursor-pointer shadow-lg hover:shadow-xl group">
-                 <div className="p-2 rounded-xl bg-white/5 group-hover:scale-110 transition-transform">
+               <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] hover:bg-[var(--bg-surface-hover)] transition-all cursor-pointer shadow-lg hover:shadow-xl group">
+                 <div className="p-2 rounded-xl bg-[var(--bg-surface)] group-hover:scale-110 transition-transform">
                    {item.icon}
                  </div>
                  <div className="text-left">
-                   <h3 className="text-white/90 font-medium text-sm mb-1">{item.title}</h3>
-                   <p className="text-white/40 text-xs">{item.desc}</p>
+                   <h3 className="text-[var(--text-primary)]/90 font-medium text-sm mb-1">{item.title}</h3>
+                   <p className="text-[var(--text-muted)] text-xs">{item.desc}</p>
                  </div>
                </div>
             ))}
@@ -85,16 +85,16 @@ const ChatArea = ({ messages, isTyping }) => {
               className={`flex gap-3 md:gap-4 w-full mb-8 will-change-gpu ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               {msg.role === 'assistant' && (
-                <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-2xl flex items-center justify-center shadow-lg bg-white/5 ring-1 ring-white/10 backdrop-blur-md self-end mb-2">
-                  <Bot size={20} className="text-purple-300" />
+                <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-2xl flex items-center justify-center shadow-lg bg-[var(--bg-surface)] ring-1 ring-[var(--border-color)] backdrop-blur-md self-end mb-2">
+                  <Bot size={20} className="text-[rgb(var(--accent-purple))]" />
                 </div>
               )}
               
               <div className={`flex flex-col max-w-[85%] md:max-w-[75%] ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
                 {msg.role === 'assistant' && (
                   <div className="flex items-center gap-2 mb-1.5 ml-1">
-                    <span className="font-medium text-white/60 text-xs tracking-wider uppercase">Gemini AI</span>
-                    <span className="text-[8px] font-bold uppercase tracking-widest bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-white/10 px-1.5 py-0 rounded-full text-white/70 shadow-sm">Pro</span>
+                    <span className="font-medium text-[var(--text-muted)] text-xs tracking-wider uppercase">Gemini AI</span>
+                    <span className="text-[8px] font-bold uppercase tracking-widest bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-[var(--border-color)] px-1.5 py-0 rounded-full text-[var(--text-secondary)] shadow-sm">Pro</span>
                   </div>
                 )}
                 
@@ -129,15 +129,15 @@ const ChatArea = ({ messages, isTyping }) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             className="flex gap-3 md:gap-4 w-full mb-8 justify-start"
           >
-            <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-2xl flex items-center justify-center shadow-lg bg-white/5 ring-1 ring-white/10 backdrop-blur-md self-end mb-2">
-               <Bot size={20} className="text-purple-300" />
+            <div className="shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-2xl flex items-center justify-center shadow-lg bg-[var(--bg-surface)] ring-1 ring-[var(--border-color)] backdrop-blur-md self-end mb-2">
+               <Bot size={20} className="text-[rgb(var(--accent-purple))]" />
             </div>
             <div className="flex flex-col items-start max-w-[85%] md:max-w-[75%]">
                <div className="flex items-center gap-2 mb-1.5 ml-1">
-                 <span className="font-medium text-white/60 text-xs tracking-wider uppercase">Gemini AI</span>
-                 <span className="text-[8px] font-bold uppercase tracking-widest bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-white/10 px-1.5 py-0 rounded-full text-white/70 shadow-sm">Pro</span>
+                 <span className="font-medium text-[var(--text-muted)] text-xs tracking-wider uppercase">Gemini AI</span>
+                 <span className="text-[8px] font-bold uppercase tracking-widest bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-[var(--border-color)] px-1.5 py-0 rounded-full text-[var(--text-secondary)] shadow-sm">Pro</span>
                </div>
-               <div className="p-5 rounded-3xl rounded-bl-sm glass-panel border border-white/5 w-fit">
+               <div className="p-5 rounded-3xl rounded-bl-sm glass-panel border border-[var(--border-color)] w-fit">
                  <div className="flex items-center gap-1.5 h-4">
                     <motion.span 
                       animate={{ y: [0, -4, 0], opacity: [0.5, 1, 0.5] }}
