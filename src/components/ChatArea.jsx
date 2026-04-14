@@ -18,12 +18,12 @@ const ChatArea = ({ messages, isTyping }) => {
             initial={{ scale: 0, opacity: 0, rotate: -10 }}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
             transition={{ type: 'spring', bounce: 0.6, duration: 0.8 }}
-            className="w-20 h-20 bg-gradient-to-tr from-purple-600/20 to-blue-500/20 backdrop-blur-xl border border-white/10 rounded-3xl flex items-center justify-center mb-6 shadow-[0_0_80px_rgba(168,85,247,0.15)] relative group"
+            className="w-20 h-20 bg-gradient-to-tr from-purple-600/20 to-blue-500/20 backdrop-blur-xl border border-[var(--border-color)] rounded-3xl flex items-center justify-center mb-6 shadow-[0_0_80px_rgba(168,85,247,0.15)] relative group"
           >
             <motion.div 
               animate={{ rotate: 360 }} 
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-3xl border border-white/10 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]"
+              className="absolute inset-0 rounded-3xl border border-[var(--border-color)] shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]"
             />
             <Sparkles size={40} className="text-cyan-300 drop-shadow-[0_0_15px_rgba(103,232,249,0.5)]" />
           </motion.div>
@@ -100,8 +100,8 @@ const ChatArea = ({ messages, isTyping }) => {
                 
                 <div className={`p-4 md:p-5 rounded-3xl transition-all duration-300 shadow-xl ${
                     msg.role === 'user' 
-                      ? 'bg-gradient-to-br from-indigo-600 to-cyan-600 text-white rounded-br-sm border border-white/10' 
-                      : 'glass-panel rounded-bl-sm border border-white/5 w-full hover:shadow-[0_8px_32px_0_rgba(168,85,247,0.1)]'
+                      ? 'bg-gradient-to-br from-indigo-600 to-cyan-600 text-white rounded-br-sm border border-[var(--border-color)]' 
+                      : 'glass-panel rounded-bl-sm border border-[var(--border-color)] w-full hover:shadow-[0_8px_32px_0_var(--shadow-color)]'
                   }`}
                 >
                   {msg.role === 'assistant' ? (

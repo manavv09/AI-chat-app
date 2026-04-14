@@ -25,7 +25,7 @@ const SettingsModal = ({ isOpen, onClose, user, isDarkTheme, setIsDarkTheme }) =
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-4xl bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row h-[80vh] max-h-[600px]"
+            className="relative w-full max-w-4xl bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-2xl shadow-2xl shadow-[var(--shadow-color)] overflow-hidden flex flex-col md:flex-row h-[80vh] max-h-[600px]"
           >
            {/* Sidebar Tabs */}
            <div className="w-full md:w-64 bg-[var(--bg-surface)] border-b md:border-b-0 md:border-r border-[var(--border-color)] p-4 flex flex-row md:flex-col gap-2 shrink-0 overflow-x-auto custom-scrollbar">
@@ -136,7 +136,7 @@ const SettingsModal = ({ isOpen, onClose, user, isDarkTheme, setIsDarkTheme }) =
                        </div>
 
                        {/* Quarterly */}
-                       <div className="bg-gradient-to-b from-purple-500/10 to-cyan-500/10 border border-purple-500/30 rounded-2xl p-6 flex flex-col relative transform md:-translate-y-2 shadow-2xl shadow-purple-500/10">
+                       <div className="bg-gradient-to-b from-purple-500/10 to-cyan-500/10 border border-purple-500/20 rounded-2xl p-6 flex flex-col relative transform md:-translate-y-2 shadow-2xl shadow-[var(--shadow-color)]">
                           <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-cyan-500 px-3 py-0.5 rounded-full text-[10px] font-bold text-white tracking-widest uppercase shadow-lg">Popular</div>
                           <h4 className="text-[var(--text-primary)] font-medium mb-1">Quarterly</h4>
                           <div className="flex items-baseline gap-1 mb-1">
