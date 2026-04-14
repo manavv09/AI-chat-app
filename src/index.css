@@ -2,36 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+:root {
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-surface: rgba(255, 255, 255, 0.03);
+  --bg-surface-hover: rgba(255, 255, 255, 0.05);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-muted: rgba(255, 255, 255, 0.3);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --accent-purple: 168, 85, 247;
+  --accent-cyan: 6, 182, 212;
+  --glass-blur: 16px;
+}
 
+body.light-theme {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-surface: rgba(255, 255, 255, 0.7);
+  --bg-surface-hover: rgba(255, 255, 255, 0.9);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-color: rgba(0, 0, 0, 0.06);
+  --accent-purple: 124, 58, 237;
+  --accent-cyan: 8, 145, 178;
+  --glass-blur: 20px;
+}
+
+@layer base {
   body {
     font-family: 'Outfit', sans-serif;
-    @apply bg-[#050505] text-white overflow-hidden;
-    background-image: 
-      radial-gradient(circle at 50% 10%, rgba(76, 29, 149, 0.15), transparent 50%),
-      radial-gradient(circle at 50% 90%, rgba(6, 182, 212, 0.15), transparent 50%);
-    background-attachment: fixed;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    @apply overflow-hidden antialiased transition-colors duration-500;
+  }
+
+  /* Simplified background for all themes */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: 
+      radial-gradient(circle at 50% -10%, rgba(var(--accent-purple), 0.08), transparent 40%),
+      radial-gradient(circle at 50% 110%, rgba(var(--accent-cyan), 0.06), transparent 40%);
+    pointer-events: none;
   }
 
   @media (min-width: 768px) {
-    body {
-      background-image: 
-        radial-gradient(ellipse at 15% 50%, rgba(76, 29, 149, 0.3), transparent 45%),
-        radial-gradient(ellipse at 85% 30%, rgba(6, 182, 212, 0.3), transparent 50%),
-        radial-gradient(ellipse at 50% 80%, rgba(168, 85, 247, 0.25), transparent 50%),
-        radial-gradient(ellipse at 20% 20%, rgba(59, 130, 246, 0.2), transparent 40%);
-      background-size: 300% 300%;
-      animation: aurora 25s ease infinite alternate;
+    body::before {
+      background: 
+        radial-gradient(circle at 15% 50%, rgba(var(--accent-purple), 0.1), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(var(--accent-cyan), 0.1), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(var(--accent-purple), 0.08), transparent 45%);
+      animation: ambient-pulse 20s ease infinite alternate;
     }
   }
 }
 
-@keyframes aurora {
-  0% { background-position: 0% 0%; }
-  33% { background-position: 100% 0%; }
-  66% { background-position: 100% 100%; }
-  100% { background-position: 0% 100%; }
+@keyframes ambient-pulse {
+  0% { opacity: 0.8; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -41,22 +73,19 @@
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--border-color);
   border-radius: 20px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--text-muted);
 }
 
-/* Glassmorphism utilities */
 .glass-panel {
-  @apply bg-white/[0.03] backdrop-blur-lg border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
-}
-
-@media (min-width: 768px) {
-  .glass-panel {
-    @apply backdrop-blur-2xl;
-  }
+  background-color: var(--bg-surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
 }
 
 .will-change-gpu {
@@ -65,7 +94,8 @@
 
 /* markdown styles for AI responses */
 .markdown-body {
-  @apply text-white/80 leading-relaxed text-[16px];
+  color: var(--text-secondary);
+  @apply leading-relaxed text-[16px];
 }
 .markdown-body p {
   @apply mb-4;
@@ -74,14 +104,19 @@
   @apply mb-0;
 }
 .markdown-body pre {
-  @apply glass-panel rounded-2xl p-4 overflow-x-auto my-5 text-[14px] border-white/5 bg-[#0a0a0a]/50;
-  box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+  @apply rounded-2xl p-4 overflow-x-auto my-5 text-[14px] border;
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
 }
 .markdown-body code {
-  @apply font-mono text-[14px] bg-white/10 px-1.5 py-0.5 rounded-lg text-cyan-300;
+  @apply font-mono text-[14px] px-1.5 py-0.5 rounded-lg;
+  background-color: var(--bg-surface);
+  color: rgb(var(--accent-cyan));
 }
 .markdown-body pre code {
-  @apply bg-transparent p-0 text-gray-300;
+  @apply bg-transparent p-0;
+  color: var(--text-secondary);
 }
 .markdown-body ul {
   @apply list-disc list-outside ml-6 mb-4 space-y-1;
@@ -90,22 +125,14 @@
   @apply list-decimal list-outside ml-6 mb-4 space-y-1;
 }
 .markdown-body a {
-  @apply text-cyan-400 underline decoration-cyan-400/30 hover:decoration-cyan-400 underline-offset-4 transition-all duration-300;
+  color: rgb(var(--accent-cyan));
+  @apply underline decoration-cyan-400/30 hover:decoration-cyan-400 underline-offset-4 transition-all duration-300;
 }
 .markdown-body h1, .markdown-body h2, .markdown-body h3 {
-  @apply font-semibold mt-8 mb-4 text-white tracking-tight;
+  @apply font-semibold mt-8 mb-4 tracking-tight;
+  color: var(--text-primary);
 }
 .markdown-body h1 { @apply text-3xl; }
 .markdown-body h2 { @apply text-2xl; }
 .markdown-body h3 { @apply text-xl; }
 
-/* Smart Invert Trick for True Light Mode */
-body.light-theme {
-  filter: invert(1) hue-rotate(180deg);
-  background-color: #fafafa;
-}
-
-body.light-theme img,
-body.light-theme video {
-  filter: invert(1) hue-rotate(180deg);
-}
