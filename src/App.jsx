@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Menu } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import ChatArea from './components/ChatArea';
 import ChatInput from './components/ChatInput';
 import Login from './components/Login';
-import SettingsModal from './components/SettingsModal';
 import { fetchAIResponse } from './services/api';
 import { auth, onAuthStateChanged, fetchHistoryFromFirestore, saveHistoryToFirestore, logOut, deleteHistoryFromFirestore } from './services/firebase';
+
+const SettingsModal = lazy(() => import('./components/SettingsModal'));
 
 function App() {
   const [user, setUser] = useState(null);
@@ -181,7 +182,7 @@ function App() {
   }
 
   return (
-    <div className="flex h-[100dvh] relative z-0">
+    <div className="flex h-[100dvh] relative z-0 bg-transparent">
       <Sidebar 
         history={history}
         activeChatId={activeChatId}
@@ -198,14 +199,14 @@ function App() {
       />
       
       <div className="flex-1 flex flex-col relative h-full w-full max-w-full">
-        <header className="md:hidden flex items-center justify-between p-4 bg-white/[0.02] backdrop-blur-3xl border-b border-white/5 absolute top-0 left-0 right-0 z-10 shadow-sm">
+        <header className="md:hidden flex items-center justify-between p-4 bg-[var(--bg-surface)] backdrop-blur-3xl border-b border-[var(--border-color)] absolute top-0 left-0 right-0 z-10 shadow-sm">
            <button 
              onClick={() => setIsSidebarOpen(true)}
-             className="text-white/70 hover:text-white transition-colors p-1"
+             className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors p-1"
            >
              <Menu size={24} />
            </button>
-           <h1 className="font-medium text-[15px] tracking-wide text-white/90">Workspace</h1>
+           <h1 className="font-medium text-[15px] tracking-wide text-[var(--text-primary)]/90">Workspace</h1>
            <div className="w-8" />
         </header>
 
@@ -215,13 +216,15 @@ function App() {
         <ChatInput onSendMessage={handleSendMessage} disabled={isTyping} />
       </div>
 
-      <SettingsModal 
-        isOpen={isSettingsOpen} 
-        onClose={() => setIsSettingsOpen(false)} 
-        user={user} 
-        isDarkTheme={isDarkTheme}
-        setIsDarkTheme={setIsDarkTheme}
-      />
+      <Suspense fallback={null}>
+        <SettingsModal 
+          isOpen={isSettingsOpen} 
+          onClose={() => setIsSettingsOpen(false)} 
+          user={user} 
+          isDarkTheme={isDarkTheme}
+          setIsDarkTheme={setIsDarkTheme}
+        />
+      </Suspense>
     </div>
   );
 }
